@@ -8,9 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#0F172A',
+        secondary: '#1E293B',
+        accent: '#38BDF8',
       },
+      viewTransitionName: {
+        'header': 'header-transition',
+        'section': 'section-transition',
+      }
     },
   },
   plugins: [],
