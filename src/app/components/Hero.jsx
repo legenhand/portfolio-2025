@@ -1,16 +1,38 @@
 'use client';
 
+import { useRef } from 'react';
 import Typewriter from 'typewriter-effect';
-import { motion } from 'framer-motion';
 import { ChevronDoubleDownIcon } from '@heroicons/react/24/outline';
+import { useInView } from 'framer-motion';
+import { GithubIcon, LinkedinIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function Hero() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    const router = useRouter();
+
+    const scrollToExperience = () => {
+        if (document.startViewTransition) {
+            document.startViewTransition(() => {
+                router.push('/#experience');
+                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+            });
+        } else {
+            router.push('/#experience');
+            document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="min-h-screen flex items-center justify-center"
+        <section
+            ref={ref}
+            className="min-h-screen flex items-center justify-center bg-primary text-white"
+            style={{
+                transform: isInView ? "none" : "translateY(20px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
+            }}
         >
             <div className="text-center px-4">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -30,8 +52,38 @@ export default function Hero() {
                         }}
                     />
                 </div>
-                <ChevronDoubleDownIcon className="h-12 w-12 mx-auto animate-bounce" />
+
+                {/* Social Icons */}
+                <div className="flex justify-center space-x-6 mb-8">
+                    <a
+                        href="https://github.com/legenhand"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-accent transition-colors"
+                        aria-label="GitHub Profile"
+                    >
+                        <GithubIcon className="h-8 w-8" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/m-rizki-firmansyah/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-accent transition-colors"
+                        aria-label="LinkedIn Profile"
+                    >
+                        <LinkedinIcon className="h-8 w-8" />
+                    </a>
+                </div>
+
+                {/* Scroll Down Button */}
+                <button
+                    onClick={scrollToExperience}
+                    className="group animate-bounce"
+                    aria-label="Scroll to Experience Section"
+                >
+                    <ChevronDoubleDownIcon className="h-12 w-12 mx-auto text-gray-400 group-hover:text-accent transition-colors" />
+                </button>
             </div>
-        </motion.section>
+        </section>
     );
 }

@@ -18,14 +18,14 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-6">
                         <a
-                            href="https://linkedin.com/in/your-profile"
+                            href="https://www.linkedin.com/in/m-rizki-firmansyah/"
                             className="text-gray-400 hover:text-accent transition-colors"
                             target="_blank"
                         >
                             LinkedIn
                         </a>
                         <a
-                            href="https://github.com/your-username"
+                            href="https://github.com/legenhand"
                             className="text-gray-400 hover:text-accent transition-colors"
                             target="_blank"
                         >
