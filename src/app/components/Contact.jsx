@@ -1,10 +1,27 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon, PhoneIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import { TerminalSquare, Send } from 'lucide-react';
 
 export default function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSend = () => {
+        const { name, email, message } = formData;
+        const mailtoLink = `mailto:muhamad@rizkifirmansyah.com?subject=Contact from Portfolio - ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        window.location.href = mailtoLink;
+    };
+
     return (
         <motion.section
             id="contact"
@@ -37,10 +54,10 @@ export default function Contact() {
                             <div>
                                 <h3 className="text-sm text-gray-400 mb-1">email_address:</h3>
                                 <a
-                                    href="mailto:firmansyah720.fs@gmail.com"
+                                    href="mailto:muhamad@rizkifirmansyah.com"
                                     className="text-white hover:text-accent transition-colors"
                                 >
-                                    "firmansyah720.fs@gmail.com"
+                                    "muhamad@rizkifirmansyah.com"
                                 </a>
                             </div>
                         </div>
@@ -94,6 +111,9 @@ export default function Contact() {
                                 <label className="block text-gray-400 mb-2">{"<Name />"}</label>
                                 <input
                                     type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     placeholder="Enter your name..."
                                     className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans"
                                 />
@@ -102,6 +122,9 @@ export default function Contact() {
                                 <label className="block text-gray-400 mb-2">{"<Email />"}</label>
                                 <input
                                     type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     placeholder="Enter your email..."
                                     className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans"
                                 />
@@ -109,6 +132,9 @@ export default function Contact() {
                             <div>
                                 <label className="block text-gray-400 mb-2">{"<Message />"}</label>
                                 <textarea
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     placeholder="Type your message here..."
                                     rows="4"
                                     className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans resize-none"
@@ -116,6 +142,7 @@ export default function Contact() {
                             </div>
                             <button
                                 type="button"
+                                onClick={handleSend}
                                 className="w-full mt-2 px-6 py-3 bg-accent/10 text-accent border border-accent/20 rounded-lg hover:bg-accent hover:text-primary transition-all font-semibold flex items-center justify-center group/btn"
                             >
                                 <Send className="w-4 h-4 mr-2 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
