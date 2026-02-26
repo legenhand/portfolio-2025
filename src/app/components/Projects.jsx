@@ -33,7 +33,6 @@ export default function Projects() {
             id="projects"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewTransitionName="section"
             className="py-20 bg-secondary"
         >
             <div className="max-w-6xl mx-auto px-4">
@@ -55,8 +54,8 @@ export default function Projects() {
                                         key={tech}
                                         className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm"
                                     >
-                    {tech}
-                  </span>
+                                        {tech}
+                                    </span>
                                 ))}
                             </div>
                             <p className="text-sm text-gray-400">{project.period}</p>

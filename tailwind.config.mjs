@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,14 +9,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0F172A',
-        secondary: '#1E293B',
-        accent: '#38BDF8',
+        primary: '#09090b',    // Very dark bg resembling IDE
+        secondary: '#18181b',  // Slightly lighter for cards/sections
+        tertiary: '#27272a',   // Borders/hover states
+        accent: '#10b981',     // Terminal/emerald green
+        info: '#3b82f6',       // Syntax blue
+        warning: '#f59e0b',    // Syntax yellow
+        error: '#ef4444',      // Syntax red
       },
-      viewTransitionName: {
-        'header': 'header-transition',
-        'section': 'section-transition',
-      }
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-jetbrains)', 'monospace'],
+      },
     },
   },
   plugins: [],

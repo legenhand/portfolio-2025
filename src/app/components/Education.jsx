@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { AcademicCapIcon, BookOpenIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
+import { GraduationCap } from 'lucide-react';
 
 const education = [
     {
@@ -73,42 +74,59 @@ export default function Education() {
             ref={ref}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="py-20 bg-primary"
+            className="py-24 bg-primary relative border-t border-tertiary/50"
         >
-            <div className="max-w-6xl mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-12 text-center">Education & Certifications</h2>
+            {/* Background grid */}
+            <div className="absolute inset-0 bg-dot-grid opacity-50 pointer-events-none"></div>
+
+            <div className="max-w-6xl mx-auto px-4 relative z-10">
+                <div className="flex items-center mb-16">
+                    <GraduationCap className="w-8 h-8 text-accent mr-4" />
+                    <h2 className="text-3xl md:text-4xl font-bold font-sans text-white tracking-tight">
+                        Education & Training
+                    </h2>
+                    <div className="h-[1px] bg-tertiary flex-1 ml-8"></div>
+                </div>
 
                 <motion.div
-                    className="space-y-8"
+                    className="space-y-6"
                     variants={containerVariants}
                 >
                     {education.map((edu, idx) => (
                         <motion.div
                             key={idx}
                             variants={itemVariants}
-                            className="bg-secondary p-8 rounded-lg border-l-4 border-accent hover:shadow-xl transition-shadow"
+                            className="bg-[#111113] p-6 md:p-8 rounded-xl border border-tertiary relative group hover:border-accent/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.05)]"
                         >
-                            <div className="flex items-start gap-4 mb-6">
-                                <edu.icon className="h-8 w-8 text-accent flex-shrink-0" />
-                                <div>
-                                    <h3 className="text-2xl font-semibold">{edu.program}</h3>
-                                    <p className="text-accent">{edu.institution}</p>
+                            {/* Accent Line */}
+                            <div className="absolute top-0 left-0 w-1 h-full bg-tertiary group-hover:bg-accent transition-colors duration-300 rounded-l-xl"></div>
+
+                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
+                                <div className="flex items-start gap-4">
+                                    <div className="mt-1 bg-primary p-3 rounded-lg border border-tertiary hidden sm:flex items-center justify-center group-hover:border-accent/50 transition-colors">
+                                        <edu.icon className="h-6 w-6 text-accent" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl md:text-2xl font-semibold text-white mb-1 group-hover:text-accent transition-colors">{edu.program}</h3>
+                                        <div className="text-gray-400 font-mono text-sm flex items-center">
+                                            <span className="text-info mr-2">@</span>
+                                            {edu.institution}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="text-left md:text-right font-mono self-start md:self-center">
+                                    <div className="inline-block bg-primary border border-tertiary px-3 py-1 rounded-md text-accent text-sm">
+                                        {edu.period}
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex justify-between items-start mb-4">
-                                <p className="text-gray-400">{edu.period}</p>
-                            </div>
-
-                            <ul className="list-disc pl-6 space-y-2 text-gray-400">
+                            <ul className="space-y-3 text-gray-400 font-sans pl-1 md:pl-16">
                                 {edu.achievements.map((achievement, i) => (
-                                    <motion.li
-                                        key={i}
-                                        whileHover={{ x: 5 }}
-                                        className="leading-relaxed"
-                                    >
-                                        {achievement}
-                                    </motion.li>
+                                    <li key={i} className="leading-relaxed flex items-start">
+                                        <span className="text-accent mr-3 mt-1.5 opacity-70">▹</span>
+                                        <span className="flex-1">{achievement}</span>
+                                    </li>
                                 ))}
                             </ul>
                         </motion.div>
