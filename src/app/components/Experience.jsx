@@ -3,70 +3,21 @@
 import { motion } from 'framer-motion';
 import { BriefcaseIcon, Terminal } from 'lucide-react';
 import Image from 'next/image';
+import portfolioData from '../../../data/portfolio.json';
 
-const experiences = [
-    {
-        company: 'PT Bank Raya Indonesia',
-        role: 'Back End Developer',
-        period: '2025.03 - Present',
-        location: 'Jakarta, Indonesia',
-        website: 'https://bankraya.co.id',
-        logo: '/logo/bankraya.png',
-        points: [
-            'Modernized legacy systems by migrating a monolithic .NET framework application into highly scalable Golang microservices',
-            'Developed robust and secure middleware services to facilitate cash withdrawals at branch offices',
-            'Engineered and integrated the QRIS-Tap middleware functionality to enhance digital payment capabilities',
-            'Optimized core middleware infrastructure to ensure high availability and seamless data flow'
-        ],
-        techlog: 'stack: ["Go", ".NET", "Microservices", "REST API"]'
-    },
-    {
-        company: 'Proxycurl',
-        role: 'Software Engineer',
-        period: '2024.06 - 2025.02',
-        location: 'Singapore, Remote',
-        website: 'https://nubela.co/proxycurl',
-        logo: '/logo/proxycurl.webp',
-        points: [
-            'Developed and maintained APIs and frontend components for Proxycurl and Sapiengraph',
-            'Built and optimized Search API features while resolving customer technical issues',
-            'Collaborated with cross-functional teams to design and ship product enhancements',
-            'Contributed to revenue growth by delivering customer-requested features'
-        ],
-        techlog: 'stack: ["Python", "TypeScript", "CockroachDB", "TimeScaleDB", "ElasticSearch", "GitLab CI"]'
-    },
-    {
-        company: 'PT Zahir Internasional',
-        role: 'Back End Developer',
-        period: '2022.08 - 2024.06',
-        location: 'Jakarta, Indonesia',
-        website: 'https://www.zahironline.com/',
-        logo: '/logo/zahir.webp',
-        points: [
-            'Led the backend infrastructure development for the Zahir Online SaaS platform',
-            'Improved system performance by 40% by migrating core services from PHP to Golang',
-            'Developed the backend microservices for the Zahir Consolidation app from scratch',
-            'Managed API integrations and feature development across ZahirHR and ZahirOnline',
-            'Designed database schemas and services to support product scalability'
-        ],
-        techlog: 'stack: ["Go", "PHP", "React.js", "JasperReport"]'
-    },
-    {
-        company: 'SMK Bina Profesi',
-        role: 'Teacher',
-        period: '2021.01 - 2022.08',
-        location: 'Bogor, Indonesia',
-        website: 'https://smk-binaprofesibgr.sch.id/',
-        logo: '/logo/smkbp.webp',
-        points: [
-            'Taught Computer and Network Engineering, focusing on Routing, MikroTik, and Linux servers',
-            'Managed the school\'s network infrastructure and computer-based exam systems',
-            'Developed technical curriculum and teaching methodologies',
-            'Improved post-pandemic student engagement through practical lesson plans',
-            'Collaborated with faculty to improve technical education quality'
-        ]
-    },
-];
+const MONTH_NAMES = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function formatPeriod(item) {
+    const start = item.startYear
+        ? (item.startMonth ? `${item.startYear}.${String(item.startMonth).padStart(2, '0')}` : `${item.startYear}`)
+        : '';
+    const end = item.endYear
+        ? (item.endMonth ? `${item.endYear}.${String(item.endMonth).padStart(2, '0')}` : `${item.endYear}`)
+        : 'Present';
+    return start && end ? `${start} - ${end}` : start || end;
+}
+
+const experiences = portfolioData.experiences;
 
 export default function Experience() {
     const containerVariants = {
@@ -164,7 +115,7 @@ export default function Experience() {
                                     </div>
                                     <div className="text-left md:text-right font-mono">
                                         <div className="inline-block bg-primary border border-tertiary px-3 py-1 rounded-md text-accent text-sm mb-2">
-                                            {exp.period}
+                                            {formatPeriod(exp)}
                                         </div>
                                         <p className="text-xs text-gray-500">{exp.location}</p>
                                     </div>

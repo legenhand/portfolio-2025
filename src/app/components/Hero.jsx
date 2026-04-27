@@ -6,6 +6,9 @@ import { ChevronDoubleDownIcon } from '@heroicons/react/24/outline';
 import { useInView } from 'framer-motion';
 import { GithubIcon, LinkedinIcon, TerminalSquare } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import portfolioData from '../../../data/portfolio.json';
+
+const hero = portfolioData.hero;
 
 export default function Hero() {
     const ref = useRef(null);
@@ -69,18 +72,13 @@ export default function Hero() {
 
                         <div className="mb-8">
                             <h1 className="text-4xl md:text-6xl font-bold font-sans text-white mb-4 tracking-tight">
-                                Muhamad Rizki Firmansyah
+                                {hero.name}
                             </h1>
                             <div className="flex text-xl md:text-2xl text-accent h-8 font-mono font-medium">
                                 <span className="text-gray-600 mr-3">{">"}</span>
                                 <Typewriter
                                     options={{
-                                        strings: [
-                                            'Backend Specialist',
-                                            'API Architect',
-                                            'Software Engineer',
-                                            'Full Stack Developer'
-                                        ],
+                                        strings: hero.titles,
                                         autoStart: true,
                                         loop: true,
                                         delay: 50,
@@ -101,8 +99,8 @@ export default function Hero() {
                             <pre className="whitespace-pre-wrap font-mono text-sm md:text-base">
                                 {`{
   "status": "ready",
-  "passion": "building scalable backend systems",
-  "location": "Indonesia"
+  "passion": "${hero.passion}",
+  "location": "${hero.location}"
 }`}
                             </pre>
                         </div>
@@ -110,7 +108,7 @@ export default function Hero() {
                         {/* Social Links */}
                         <div className="flex items-center space-x-6 border-t border-tertiary pt-6 mt-4">
                             <a
-                                href="https://github.com/legenhand"
+                                href={hero.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center text-gray-400 hover:text-white transition-colors group"
@@ -119,7 +117,7 @@ export default function Hero() {
                                 <span className="font-sans group-hover:underline">GitHub</span>
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/m-rizki-firmansyah/"
+                                href={hero.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center text-gray-400 hover:text-info transition-colors group"

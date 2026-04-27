@@ -4,13 +4,12 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon, PhoneIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import { TerminalSquare, Send } from 'lucide-react';
+import portfolioData from '../../../data/portfolio.json';
+
+const contact = portfolioData.contact;
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +17,7 @@ export default function Contact() {
 
     const handleSend = () => {
         const { name, email, message } = formData;
-        const mailtoLink = `mailto:muhamad@rizkifirmansyah.com?subject=Contact from Portfolio - ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        const mailtoLink = `mailto:${contact.email}?subject=Contact from Portfolio - ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
         window.location.href = mailtoLink;
     };
 
@@ -46,57 +45,42 @@ export default function Contact() {
                                 Feel free to reach out for collaborations, opportunities, or just to say hello.
                             </p>
                         </div>
-
                         <div className="flex items-center gap-4 group">
                             <div className="p-3 bg-primary rounded-lg border border-tertiary group-hover:border-accent/50 transition-colors">
                                 <EnvelopeIcon className="h-6 w-6 text-accent" />
                             </div>
                             <div>
                                 <h3 className="text-sm text-gray-400 mb-1">email_address:</h3>
-                                <a
-                                    href="mailto:muhamad@rizkifirmansyah.com"
-                                    className="text-white hover:text-accent transition-colors"
-                                >
-                                    "muhamad@rizkifirmansyah.com"
+                                <a href={`mailto:${contact.email}`} className="text-white hover:text-accent transition-colors">
+                                    "{contact.email}"
                                 </a>
                             </div>
                         </div>
-
                         <div className="flex items-center gap-4 group">
                             <div className="p-3 bg-primary rounded-lg border border-tertiary group-hover:border-info/50 transition-colors">
                                 <PhoneIcon className="h-6 w-6 text-info" />
                             </div>
                             <div>
                                 <h3 className="text-sm text-gray-400 mb-1">phone_number:</h3>
-                                <a
-                                    href="tel:+6285155017225"
-                                    className="text-white hover:text-info transition-colors"
-                                >
-                                    "+62 851-5501-7225"
+                                <a href={`tel:${contact.phoneRaw}`} className="text-white hover:text-info transition-colors">
+                                    "{contact.phone}"
                                 </a>
                             </div>
                         </div>
-
                         <div className="flex items-center gap-4 group">
                             <div className="p-3 bg-primary rounded-lg border border-tertiary group-hover:border-warning/50 transition-colors">
                                 <GlobeAltIcon className="h-6 w-6 text-warning" />
                             </div>
                             <div>
                                 <h3 className="text-sm text-gray-400 mb-1">website_url:</h3>
-                                <a
-                                    href="https://rizkifirmansyah.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-white hover:text-warning transition-colors"
-                                >
-                                    "rizkifirmansyah.com"
+                                <a href={`https://${contact.website}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-warning transition-colors">
+                                    "{contact.website}"
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <div className="bg-[#111113] p-8 rounded-xl border border-tertiary relative group">
-                        {/* Terminal Header */}
                         <div className="flex items-center mb-6 pb-4 border-b border-tertiary/50">
                             <div className="flex space-x-2 mr-4">
                                 <div className="w-3 h-3 rounded-full bg-error"></div>
@@ -105,46 +89,24 @@ export default function Contact() {
                             </div>
                             <span className="text-xs text-gray-500 font-mono">guest@visitor: ~/send_message</span>
                         </div>
-
                         <form className="space-y-5 font-mono text-sm">
                             <div>
                                 <label className="block text-gray-400 mb-2">{"<Name />"}</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Enter your name..."
-                                    className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans"
-                                />
+                                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name..."
+                                    className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans" />
                             </div>
                             <div>
                                 <label className="block text-gray-400 mb-2">{"<Email />"}</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="Enter your email..."
-                                    className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans"
-                                />
+                                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email..."
+                                    className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans" />
                             </div>
                             <div>
                                 <label className="block text-gray-400 mb-2">{"<Message />"}</label>
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    placeholder="Type your message here..."
-                                    rows="4"
-                                    className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans resize-none"
-                                ></textarea>
+                                <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Type your message here..." rows="4"
+                                    className="w-full p-3 bg-primary border border-tertiary rounded-lg focus:ring-1 focus:ring-accent focus:border-accent outline-none text-white placeholder-gray-600 transition-all font-sans resize-none"></textarea>
                             </div>
-                            <button
-                                type="button"
-                                onClick={handleSend}
-                                className="w-full mt-2 px-6 py-3 bg-accent/10 text-accent border border-accent/20 rounded-lg hover:bg-accent hover:text-primary transition-all font-semibold flex items-center justify-center group/btn"
-                            >
+                            <button type="button" onClick={handleSend}
+                                className="w-full mt-2 px-6 py-3 bg-accent/10 text-accent border border-accent/20 rounded-lg hover:bg-accent hover:text-primary transition-all font-semibold flex items-center justify-center group/btn">
                                 <Send className="w-4 h-4 mr-2 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
                                 Execute .send()
                             </button>

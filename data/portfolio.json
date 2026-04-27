@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "name": "Muhamad Rizki Firmansyah",
+    "titles": [
+      "Backend Specialist",
+      "API Architect",
+      "Software Engineer",
+      "Full Stack Developer"
+    ],
+    "passion": "building scalable backend systems",
+    "location": "Indonesia",
+    "github": "https://github.com/legenhand",
+    "linkedin": "https://www.linkedin.com/in/m-rizki-firmansyah/"
+  },
+  "experiences": [
+    {
+      "company": "PT Bank Raya Indonesia",
+      "role": "Back End Developer",
+      "startMonth": 3,
+      "startYear": 2025,
+      "endMonth": null,
+      "endYear": null,
+      "location": "Jakarta, Indonesia",
+      "website": "https://bankraya.co.id",
+      "logo": "/logo/bankraya.png",
+      "points": [
+        "Modernized legacy systems by migrating a monolithic .NET framework application into highly scalable Golang microservices",
+        "Developed robust and secure middleware services to facilitate cash withdrawals at branch offices",
+        "Engineered and integrated the QRIS-Tap middleware functionality to enhance digital payment capabilities",
+        "Optimized core middleware infrastructure to ensure high availability and seamless data flow"
+      ],
+      "techlog": "stack: [\"Go\", \".NET\", \"Microservices\", \"REST API\"]"
+    },
+    {
+      "company": "Proxycurl",
+      "role": "Software Engineer",
+      "startMonth": 6,
+      "startYear": 2024,
+      "endMonth": 2,
+      "endYear": 2025,
+      "location": "Singapore, Remote",
+      "website": "https://nubela.co/proxycurl",
+      "logo": "/logo/proxycurl.webp",
+      "points": [
+        "Developed and maintained APIs and frontend components for Proxycurl and Sapiengraph",
+        "Built and optimized Search API features while resolving customer technical issues",
+        "Collaborated with cross-functional teams to design and ship product enhancements",
+        "Contributed to revenue growth by delivering customer-requested features"
+      ],
+      "techlog": "stack: [\"Go\", \"Python\", \"TypeScript\", \"CockroachDB\", \"TimeScaleDB\", \"ElasticSearch\", \"GitLab CI\"]"
+    },
+    {
+      "company": "PT Zahir Internasional",
+      "role": "Back End Developer",
+      "startMonth": 8,
+      "startYear": 2022,
+      "endMonth": 6,
+      "endYear": 2024,
+      "location": "Jakarta, Indonesia",
+      "website": "https://www.zahironline.com/",
+      "logo": "/logo/zahir.webp",
+      "points": [
+        "Led the backend infrastructure development for the Zahir Online SaaS platform",
+        "Improved system performance by 40% by migrating core services from PHP to Golang",
+        "Developed the backend microservices for the Zahir Consolidation app from scratch",
+        "Managed API integrations and feature development across ZahirHR and ZahirOnline",
+        "Designed database schemas and services to support product scalability"
+      ],
+      "techlog": "stack: [\"Go\", \"PHP\", \"React.js\", \"JasperReport\"]"
+    },
+    {
+      "company": "SMK Bina Profesi",
+      "role": "Teacher",
+      "startMonth": 1,
+      "startYear": 2021,
+      "endMonth": 8,
+      "endYear": 2022,
+      "location": "Bogor, Indonesia",
+      "website": "https://smk-binaprofesibgr.sch.id/",
+      "logo": "/logo/smkbp.webp",
+      "points": [
+        "Taught Computer and Network Engineering, focusing on Routing, MikroTik, and Linux servers",
+        "Managed the school's network infrastructure and computer-based exam systems",
+        "Developed technical curriculum and teaching methodologies",
+        "Improved post-pandemic student engagement through practical lesson plans",
+        "Collaborated with faculty to improve technical education quality"
+      ],
+      "techlog": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "backend",
+      "items": ["Golang", "Python", "Node.js", "PHP"]
+    },
+    {
+      "name": "fullstack",
+      "items": ["TypeScript", "JavaScript", "Next.js", "React.js"]
+    },
+    {
+      "name": "database",
+      "items": ["PostgreSQL", "CockroachDB", "Elasticsearch", "MySQL"]
+    },
+    {
+      "name": "devops",
+      "items": ["Docker", "GitLab CI", "Git"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+      "program": "Mobile Development Cohort",
+      "startMonth": null,
+      "startYear": 2023,
+      "endMonth": null,
+      "endYear": 2024,
+      "icon": "AcademicCapIcon",
+      "achievements": [
+        "Learned Android development from basic to intermediate, including Jetpack Compose",
+        "Earned certifications in Basic, Fundamental, and Intermediate Android through Dicoding",
+        "Collaborated with Machine Learning and Cloud Engineers on rental marketplace project",
+        "Enhanced teamwork and mobile development skills through cross-functional collaboration"
+      ]
+    },
+    {
+      "institution": "Universitas Terbuka",
+      "program": "Sistem Informasi",
+      "startMonth": null,
+      "startYear": 2021,
+      "endMonth": null,
+      "endYear": 2024,
+      "icon": "BookOpenIcon",
+      "achievements": [
+        "Achieved GPA of 3.38",
+        "Participated in MSIB Study Independent program with Bangkit Academy",
+        "Authored scientific paper on MVVM and Jetpack Compose implementation",
+        "Specialized in mobile application development and software engineering"
+      ]
+    },
+    {
+      "institution": "DumbWays.id",
+      "program": "Fullstack Developer",
+      "startMonth": null,
+      "startYear": 2022,
+      "endMonth": null,
+      "endYear": null,
+      "icon": "CodeBracketIcon",
+      "achievements": [
+        "Gained hands-on experience in React.js and Node.js development",
+        "Built and deployed full-stack web applications",
+        "Earned Fullstack Developer certification",
+        "Completed intensive bootcamp program"
+      ]
+    }
+  ],
+  "contact": {
+    "email": "muhamad@rizkifirmansyah.com",
+    "phone": "+62 851-5501-7225",
+    "phoneRaw": "+6285155017225",
+    "website": "rizkifirmansyah.com"
+  },
+  "projects": [
+    {
+      "title": "Finara",
+      "description": "Personal finance tracking app with AI chatbot integration for seamless transaction recording",
+      "icon": "CommandLineIcon",
+      "tech": ["Next.js", "TypeScript", "AI Chatbot"],
+      "period": "2025",
+      "website": "https://finara.rizkifirmansyah.com"
+    }
+  ]
+}

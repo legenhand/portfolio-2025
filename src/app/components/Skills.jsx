@@ -8,25 +8,9 @@ import {
 } from 'react-icons/si';
 import { useRef } from 'react';
 import { Code2 } from "lucide-react";
+import portfolioData from '../../../data/portfolio.json';
 
-const skills = [
-    {
-        name: 'backend',
-        items: ['Golang', 'Python', 'Node.js', 'PHP'],
-    },
-    {
-        name: 'fullstack',
-        items: ['TypeScript', 'JavaScript', 'Next.js', 'React.js'],
-    },
-    {
-        name: 'database',
-        items: ['PostgreSQL', 'CockroachDB', 'Elasticsearch', 'MySQL'],
-    },
-    {
-        name: 'devops',
-        items: ['Docker', 'GitLab CI', 'Git'],
-    }
-];
+const skills = portfolioData.skills;
 
 const iconComponents = {
     Golang: SiGo,
