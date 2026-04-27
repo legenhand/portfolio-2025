@@ -91,19 +91,39 @@
   "skills": [
     {
       "name": "backend",
-      "items": ["Golang", "Python", "Node.js", "PHP"]
+      "items": [
+        "Golang",
+        "Python",
+        "Node.js",
+        "PHP",
+        ".NET"
+      ]
     },
     {
       "name": "fullstack",
-      "items": ["TypeScript", "JavaScript", "Next.js", "React.js"]
+      "items": [
+        "TypeScript",
+        "JavaScript",
+        "Next.js",
+        "React.js"
+      ]
     },
     {
       "name": "database",
-      "items": ["PostgreSQL", "CockroachDB", "Elasticsearch", "MySQL"]
+      "items": [
+        "PostgreSQL",
+        "CockroachDB",
+        "Elasticsearch",
+        "MySQL"
+      ]
     },
     {
       "name": "devops",
-      "items": ["Docker", "GitLab CI", "Git"]
+      "items": [
+        "Docker",
+        "GitLab CI",
+        "Git"
+      ]
     }
   ],
   "education": [
@@ -164,7 +184,11 @@
       "title": "Finara",
       "description": "Personal finance tracking app with AI chatbot integration for seamless transaction recording",
       "icon": "CommandLineIcon",
-      "tech": ["Next.js", "TypeScript", "AI Chatbot"],
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "AI Chatbot"
+      ],
       "period": "2025",
       "website": "https://finara.rizkifirmansyah.com"
     }
