@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { CodeBracketIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import CvButton from './button/CvButton';
 import Link from 'next/link';
 
 const navigation = [
@@ -74,9 +73,6 @@ export default function Navbar() {
                                 </button>
                             ))}
                         </div>
-                        <div className="ml-2 pl-4 border-l border-tertiary/60">
-                            <CvButton />
-                        </div>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -112,9 +108,6 @@ export default function Navbar() {
                             {item.name}
                         </button>
                     ))}
-                    <div className="pt-4 mt-2 border-t border-tertiary">
-                        <CvButton />
-                    </div>
                 </div>
             </div>
         </nav>
